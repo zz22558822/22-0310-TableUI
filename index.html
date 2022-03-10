@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>映興電子-生產報工查詢系統</title>
+
+    <link rel="icon" href="images/dashboard.png">
+
+    <meta name="author" content="chek">
+    <meta name="copyright" content="chek">
+    <meta name="generator" content="chek">
+    <meta name="description" content="映興電子-生產報工查詢系統">
+    <meta name="keywords" content="映興電子,生產報工查詢系統,映興電子-生產報工查詢系統">
+
+    <meta property="og:title" content="映興電子-生產報工查詢系統">
+    <meta property="og:description" content="生產報工查詢系統">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" href="images/dashboard-1.png">
+
+    <link href="images/dashboard.png" rel="apple-touch-icon" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script src="js/53fb2c75c6.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="scss/style.css">
+
+</head>
+
+<body>
+    <div class="wrap">
+
+        <div class="frame">
+
+            <div class="header">
+                <h2 class="week">星期<span></span></h2>
+                <div class="day-frame">
+                    <p class="day"></p>
+                </div>
+            </div>
+
+
+            <ul class="list">
+                <li>
+                    <a class="group" href="#">組別</a>
+                    <div class="group-div list-div close">
+                        <select id="group-list" class="group-list">
+                            <option value="A小組">A小組</option>
+                            <option value="B小組">B小組</option>
+                            <option value="B小組">C小組</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <a class="order" href="#">工單</a>
+                    <div class="order-div list-div close">
+                        <select id="group-list" class="group-list">
+                            <option value="A工單">A工單</option>
+                            <option value="B工單">B工單</option>
+                            <option value="B工單">C工單</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <a class="staff" href="#">人員</a>
+                    <div class="staff-div list-div close">
+                        <select id="group-list" class="group-list">
+                            <option value="A人員">A人員</option>
+                            <option value="B人員">B人員</option>
+                            <option value="B人員">C人員</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <a class="condition" href="#">狀況</a>
+                    <div class="condition-div list-div close">
+                        <select id="group-list" class="group-list">
+                            <option value="A狀況">A狀況</option>
+                            <option value="B狀況">B狀況</option>
+                            <option value="B狀況">C狀況</option>
+                        </select>
+                    </div>
+                </li>
+
+            </ul>
+    
+    
+            <div class="black">
+                <a href="#" class="fas fa-caret-left fa-3x"></a>
+            </div>
+
+        </div>
+
+
+        <div id="map" class="map">
+            <H1>生產報工查詢系統</H1>
+            <table>
+                <tr class="Y1">
+                    <td class="X1">生產日期</td>
+                    <td class="X2">工單號碼</td>
+                    <td class="X3">料號</td>
+                    <td class="X4">品名</td>
+                    <td class="X5">規格</td>
+                    <td class="X6">單位</td>
+                    <td class="X7">客戶</td>
+                    <td class="X8">製程序號</td>
+                    <td class="X9">作業編號</td>
+                    <td class="X10">作業說明</td>
+                    <td class="X11">組別</td>
+                    <td class="X12">預計產量</td>
+                    <td class="X13">報工數量</td>
+                    <td class="X14">作業者</td>
+                    <td class="X15">人員名稱</td>
+                    <td class="X16">工時(分)</td>
+                    <td class="X17">狀態</td>
+                    <td class="X18">開始時間</td>
+                    <td class="X19">結束時間</td>
+                    <td class="X20">已移交量</td>
+                    <td class="X21">變動工時(分)</td>
+                    <td class="X22">固定工時(分)</td>
+                </tr>
+                <tr class="Y2">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y3">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y4">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y5">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y6">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y7">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y8">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y9">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y10">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y11">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y12">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y13">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y14">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y15">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y16">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y17">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y18">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y19">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+                <tr class="Y20">
+                    <td class="X1">2022/03/09</td>
+                    <td class="X2">T612-220100243</td>
+                    <td class="X3">03911085R</td>
+                    <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
+                    <td class="X5">02002532R半成品</td>
+                    <td class="X6">PCS</td>
+                    <td class="X7">A02514</td>
+                    <td class="X8">60</td>
+                    <td class="X9">99CS03</td>
+                    <td class="X10">塑膠射出</td>
+                    <td class="X11">TW1921</td>
+                    <td class="X12">4100</td>
+                    <td class="X13">0</td>
+                    <td class="X14">T01631</td>
+                    <td class="X15">謝越勇</td>
+                    <td class="X16">0</td>
+                    <td class="X17">生產</td>
+                    <td class="X18">10:03</td>
+                    <td class="X19"></td>
+                    <td class="X20">2680</td>
+                    <td class="X21">1.666667</td>
+                    <td class="X22">60</td>
+                </tr>
+            </table>
+        </div>
+        
+
+        <div class="loading disNone">
+            <img src="images/Double Ring-1.3s-200px.gif" alt="loading">
+        </div>
+
+
+    </div>
+
+
+
+
+
+<!--JS載入-->
+
+<script type="text/javascript" src="js/all.js"></script>
+
+</body>
+</html>
