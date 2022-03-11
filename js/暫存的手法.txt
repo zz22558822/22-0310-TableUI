@@ -1,0 +1,99 @@
+// 暫存手法
+// 暫存選項區域  開關記憶選項 and 選擇了什麼 待製作
+// 暫存選項組別
+var localGroup = localStorage.getItem('group-list');
+// 暫存選項工單
+var localOrder = localStorage.getItem('order-list');
+// 暫存選項人員
+var localStaff = localStorage.getItem('staff-list');
+// 暫存選項狀況
+var localCondition = localStorage.getItem('condition-list');
+
+
+if (localGroup == '' || localGroup == null) {
+    localStorage.setItem('group-list','全部組別');
+    localGroup = localStorage.getItem('group-list');
+};
+if (localOrder == '' || localOrder == null) {
+    localStorage.setItem('order-list','全部工單');
+    localOrder = localStorage.getItem('order-list');
+};
+if (localStaff == '' || localStaff == null) {
+    localStorage.setItem('staff-list','全部人員');
+    localStaff = localStorage.getItem('staff-list');
+};
+if (localCondition == '' || localCondition == null) {
+    localStorage.setItem('condition-list','全部狀況');
+    localCondition = localStorage.getItem('condition-list');
+};
+
+
+
+
+
+
+// --------------------(監聽)--------------------
+// 監聽 組別 List 切換的部分
+document.querySelector('.group-list').addEventListener('change',function (e) {
+    //篩選組別 並渲染點擊的組別
+    renderListGroup(e.target.value);
+
+    // 讓localStorage 的組別資料清空
+    localStorage.removeItem('group-list-Num')
+    localStorage.removeItem('group-list')
+
+
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+
+})
+// 監聽 工單 List 切換的部分
+document.querySelector('.order-list').addEventListener('change',function (e) {
+    //篩選工單 並渲染點擊的工單
+    renderListOrder(e.target.value);
+
+    // 讓localStorage 的組別資料清空
+    localStorage.removeItem('order-list-Num')
+    localStorage.removeItem('order-list')
+
+
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+    
+})
+// 監聽 人員 List 切換的部分
+document.querySelector('.staff-list').addEventListener('change',function (e) {
+    //篩選人員 並渲染點擊的人員
+    renderListStaff(e.target.value);
+})
+// 監聽 狀況 List 切換的部分
+document.querySelector('.condition-list').addEventListener('change',function (e) {
+    //篩選狀況 並渲染點擊的狀況
+    renderListCondition(e.target.value);
+})
+
+
+
+
+
+
+
+
+
+
+
+// 全部組別的渲染內
+// 讓localStorage 的組別資料清空
+localStorage.removeItem('group-Num')
+localStorage.removeItem('group')
+
+
+
+
+
+
+

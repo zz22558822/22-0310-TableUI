@@ -1,6 +1,7 @@
 // 資料存放至 data
 let data;
 
+// --------------------(這裡是未來要用多選的話在使用的)--------------------
 // 細分區域後的資料 存在 groupData
 let groupData = [];
 // 細分區域後的資料 存在 orderData
@@ -14,52 +15,16 @@ let conditionData = [];
 let dataNew;
 
 
-// 暫存選項區域  開關記憶選項 and 選擇了什麼 待製作
+// --------------------(開關記憶選項 )--------------------
+// 暫存選項區域  開關記憶選項 and 選擇了什麼
 // 暫存選項組別
-var localGroup = localStorage.getItem('group');
+var localGroup = localStorage.getItem('group-list');
 // 暫存選項工單
-var localOrder = localStorage.getItem('order');
+var localOrder = localStorage.getItem('order-list');
 // 暫存選項人員
-var localStaff = localStorage.getItem('staff');
+var localStaff = localStorage.getItem('staff-list');
 // 暫存選項狀況
-var localCondition = localStorage.getItem('condition');
-
-
-if (localCity == '' || localCity == null) {
-    localStorage.setItem('city','全部區域');
-    localCity = localStorage.getItem('city');
-};
-if (localCitie == '' || localCitie == null) {
-    localStorage.setItem('citie','全部區域');
-    localCitie = localStorage.getItem('citie');
-};
-if (localCity == '' || localCity == null) {
-    localStorage.setItem('city','全部區域');
-    localCity = localStorage.getItem('city');
-};
-if (localCitie == '' || localCitie == null) {
-    localStorage.setItem('citie','全部區域');
-    localCitie = localStorage.getItem('citie');
-};
-if (localCity == '' || localCity == null) {
-    localStorage.setItem('city','全部區域');
-    localCity = localStorage.getItem('city');
-};
-if (localCitie == '' || localCitie == null) {
-    localStorage.setItem('citie','全部區域');
-    localCitie = localStorage.getItem('citie');
-};
-if (localCity == '' || localCity == null) {
-    localStorage.setItem('city','全部區域');
-    localCity = localStorage.getItem('city');
-};
-if (localCitie == '' || localCitie == null) {
-    localStorage.setItem('citie','全部區域');
-    localCitie = localStorage.getItem('citie');
-};
-
-
-
+var localCondition = localStorage.getItem('condition-list');
 
 
 
@@ -80,8 +45,55 @@ function getData() {
         data = JSON.parse(xhr.responseText);
         data = data.features;
         
-        // 刷新左側選單
+        // 刷新左側選單 的選項List
         upAllMenu();
+
+        // 判斷是否第一次進入網站 沒有 local 暫存的選項
+        if (localGroup == null && localOrder == null && localStaff == null && localCondition == null) {
+            
+//             console.log(`歡迎使用，生產報工查詢系統
+// 系統會自動記憶上次的顯示選項，
+// 但請不要清除瀏覽器，或是使用無痕模式。`);
+
+            // 如果第一次進入 預設調整到全部顯示
+            localStorage.setItem('group-list','全部組別');
+            localGroup = localStorage.getItem('group-list');
+            
+            // 渲染組別 並帶入參數(暫存的選項)
+            renderListGroup(localGroup)
+        }else if(localGroup != null) {
+            // 使用刷新的資料 渲染出來
+            renderListGroup(localGroup);
+            // 把顯示區塊打開 User 就能知道選了什麼
+            document.querySelector('.group-div').classList.remove('close')
+            // 預設 子選擇框選項
+            document.getElementById('group-list').selectedIndex = localStorage.getItem('group-list-Num');
+        }else if(localOrder != null) {
+            renderListOrder(localOrder);
+            // 把顯示區塊打開 User 就能知道選了什麼
+            document.querySelector('.order-div').classList.remove('close')
+            // 預設 子選擇框選項
+            document.getElementById('order-list').selectedIndex = localStorage.getItem('order-list-Num');
+        }else if(localStaff != null) {
+            renderListStaff(localStaff);
+            // 把顯示區塊打開 User 就能知道選了什麼
+            document.querySelector('.staff-div').classList.remove('close')
+            // 預設 子選擇框選項
+            document.getElementById('staff-list').selectedIndex = localStorage.getItem('staff-list-Num');
+        }else if(localCondition != null) {
+            renderListCondition(localCondition);
+            // 把顯示區塊打開 User 就能知道選了什麼
+            document.querySelector('.condition-div').classList.remove('close')
+            // 預設 子選擇框選項
+            document.getElementById('condition-list').selectedIndex = localStorage.getItem('condition-list-Num');
+        };
+
+
+
+        
+
+
+        
 
         //關閉讀取動畫
         closeLoading();
@@ -223,21 +235,49 @@ function upConditionMenu() {
 document.querySelector('.group-list').addEventListener('change',function (e) {
     //篩選組別 並渲染點擊的組別
     renderListGroup(e.target.value);
+
+
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+
 })
 // 監聽 工單 List 切換的部分
 document.querySelector('.order-list').addEventListener('change',function (e) {
     //篩選工單 並渲染點擊的工單
     renderListOrder(e.target.value);
+
+
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+    
 })
 // 監聽 人員 List 切換的部分
 document.querySelector('.staff-list').addEventListener('change',function (e) {
     //篩選人員 並渲染點擊的人員
     renderListStaff(e.target.value);
+    
+
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+
 })
 // 監聽 狀況 List 切換的部分
 document.querySelector('.condition-list').addEventListener('change',function (e) {
     //篩選狀況 並渲染點擊的狀況
     renderListCondition(e.target.value);
+
+    
+    // 使用 localStorage 儲存上次選擇區域
+    localStorage.setItem(this.id,e.target.value);
+    // 使用 localStorage 儲存上次選擇區域 selectedIndex 來預選
+    localStorage.setItem(this.id+'-Num',e.target.selectedIndex);
+
 })
 
 
@@ -287,8 +327,8 @@ function renderListGroup(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -309,6 +349,17 @@ function renderListGroup(options){
             </tr>
             `;
         }else if (data[i].properties.county == options) {
+
+            // 讓localStorage 的其餘資料清空
+            localStorage.removeItem('order-list-Num')
+            localStorage.removeItem('order-list')
+            localStorage.removeItem('staff-list-Num')
+            localStorage.removeItem('staff-list')
+            localStorage.removeItem('condition-list-Num')
+            localStorage.removeItem('condition-list')
+
+
+
             // 將區域資料累加到 groupData 當中
             groupData.push(data[i])
             num++;
@@ -317,8 +368,8 @@ function renderListGroup(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -389,8 +440,8 @@ function renderListOrder(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -411,6 +462,17 @@ function renderListOrder(options){
             </tr>
             `;
         }else if (data[i].properties.cunli == options) {
+
+
+            // 讓localStorage 的其餘資料清空
+            localStorage.removeItem('group-list-Num')
+            localStorage.removeItem('group-list')
+            localStorage.removeItem('staff-list-Num')
+            localStorage.removeItem('staff-list')
+            localStorage.removeItem('condition-list-Num')
+            localStorage.removeItem('condition-list')
+
+
             // 將區域資料累加到 groupData 當中
             orderData.push(data[i])
             num++;
@@ -419,8 +481,8 @@ function renderListOrder(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -491,8 +553,8 @@ function renderListStaff(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -513,6 +575,17 @@ function renderListStaff(options){
             </tr>
             `;
         }else if (data[i].properties.name == options) {
+
+
+            // 讓localStorage 的其餘資料清空
+            localStorage.removeItem('group-list-Num')
+            localStorage.removeItem('group-list')
+            localStorage.removeItem('order-list-Num')
+            localStorage.removeItem('order-list')
+            localStorage.removeItem('condition-list-Num')
+            localStorage.removeItem('condition-list')
+
+
             // 將區域資料累加到 groupData 當中
             staffData.push(data[i])
             num++;
@@ -521,8 +594,8 @@ function renderListStaff(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -592,8 +665,8 @@ function renderListCondition(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -614,6 +687,17 @@ function renderListCondition(options){
             </tr>
             `;
         }else if (data[i].properties.id == options) {
+
+
+            // 讓localStorage 的其餘資料清空
+            localStorage.removeItem('group-list-Num')
+            localStorage.removeItem('group-list')
+            localStorage.removeItem('order-list-Num')
+            localStorage.removeItem('order-list')
+            localStorage.removeItem('staff-list-Num')
+            localStorage.removeItem('staff-list')
+
+
             // 將區域資料累加到 groupData 當中
             conditionData.push(data[i])
             num++;
@@ -622,8 +706,8 @@ function renderListCondition(options){
                 <td class="X1">2022/03/09</td>
                 <td class="X2">T612-220100243</td>
                 <td class="X3">03911085R</td>
-                <td class="X4">EKM0095中置馬達連接線EBC121加工</td>
-                <td class="X5">02002532R半成品</td>
+                <td class="X4">${data[i].properties.name}</td>
+                <td class="X5">${i}</td>
                 <td class="X6">PCS</td>
                 <td class="X7">A02514</td>
                 <td class="X8">60</td>
@@ -841,8 +925,30 @@ function updata() {
             // 深層複製 新資料到舊資料當中
             data = JSON.parse(JSON.stringify(dataNew))
             
-            // 刷新全部左側選單
+            // 刷新左側選單 的選項List
             upAllMenu();
+
+
+        // 判斷是否第一次進入網站 沒有 local 暫存的選項
+        if (localGroup == null && localOrder == null && localStaff == null && localCondition == null) {
+            
+            // 如果第一次進入 預設調整到全部顯示
+            localStorage.setItem('group-list','全部組別');
+            localGroup = localStorage.getItem('group-list');
+            
+            // 渲染組別 並帶入參數(暫存的選項)
+            renderListGroup(localGroup)
+        }else if(localGroup != null) {
+            renderListGroup(localGroup)
+        }else if(localOrder != null) {
+            renderListOrder(localOrder)
+        }else if(localStaff != null) {
+            renderListStaff(localStaff)
+        }else if(localCondition != null) {
+            renderListCondition(localCondition)
+        };
+
+
         }
     }
 }

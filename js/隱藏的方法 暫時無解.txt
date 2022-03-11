@@ -1,0 +1,11 @@
+// 把目前所有的 X4 都加上 close 的方法
+document.querySelectorAll('.X4')[i].className = 'X4 close'
+// 取得 ID 為 ttable的DOM元素的 列數量
+document.getElementById('ttable').rows.length
+
+
+
+// // 測試目前隱藏一行的方法
+// for (let i = 0; i < document.getElementById('ttable').rows.length; i++) {
+//     document.querySelectorAll('.X4')[i].className = 'X4 close'
+// }
